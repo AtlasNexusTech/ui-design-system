@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UI Design System — Complete Design Stack for Claude & Claude Code | Atlas Nexus</title>
+  <meta name="description" content="5 modules for impeccable interfaces: cheap detector audit, UX rules, visual culture, high-fidelity prototyping, Playwright validation. Open-source skill for Claude Code.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='8' r='3' fill='%237C3AED'/%3E%3Ccircle cx='8' cy='24' r='3' fill='%237C3AED'/%3E%3Ccircle cx='24' cy='24' r='3' fill='%237C3AED'/%3E%3Cline x1='16' y1='11' x2='8' y2='21' stroke='%236366F1' stroke-width='2'/%3E%3Cline x1='16' y1='11' x2='24' y2='21' stroke='%236366F1' stroke-width='2'/%3E%3C/svg%3E">
+  <link rel="canonical" href="https://atlasnexus.tech/ui-design-system/en/">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200;0,6..12,300;0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;0,6..12,800;1,6..12,200;1,6..12,300;1,6..12,400;1,6..12,500;1,6..12,600;1,6..12,700&display=swap" rel="stylesheet">
+</head>
+<body class="font-body bg-surface dark:bg-dark-surface text-foreground dark:text-dark-foreground antialiased transition-colors duration-300">
+
+<!-- ===== NAV ===== -->
+<nav class="fixed top-0 w-full z-50 bg-surface/85 dark:bg-dark-surface/90 backdrop-blur-lg border-b border-border dark:border-dark-border">
+  <div class="max-w-6xl mx-auto px-6 h-[72px] flex items-center justify-between">
+    <!-- Logo -->
+    <a href="https://atlasnexus.tech/en/" class="flex items-center gap-3 group">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="5" r="2.5" fill="url(#lg-purple)"/>
+        <circle cx="5" cy="19" r="2.5" fill="url(#lg-purple)"/>
+        <circle cx="19" cy="19" r="2.5" fill="url(#lg-purple)"/>
+        <line x1="12" y1="7.5" x2="5" y2="16.5" stroke="url(#lg-indigo)" stroke-width="1.5"/>
+        <line x1="12" y1="7.5" x2="19" y2="16.5" stroke="url(#lg-indigo)" stroke-width="1.5"/>
+        <defs>
+          <linearGradient id="lg-purple" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#7C3AED"/><stop offset="1" stop-color="#6366F1"/></linearGradient>
+          <linearGradient id="lg-indigo" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#6366F1"/><stop offset="1" stop-color="#818CF8"/></linearGradient>
+        </defs>
+      </svg>
+      <span class="font-display font-bold text-lg tracking-tight text-foreground dark:text-dark-foreground">Atlas Nexus</span>
+    </a>
+    <!-- Right -->
+    <div class="flex items-center gap-4">
+      <div class="lang-switch flex gap-1 text-xs font-display font-semibold" data-active="en">
+        <a class="px-2.5 py-1.5 rounded-full hover:bg-muted dark:hover:bg-dark-muted transition-colors" href="/ui-design-system/">FR</a>
+        <a class="active px-2.5 py-1.5 rounded-full bg-primary text-white" href="/ui-design-system/en/">EN</a>
+      </div>
+      <button id="theme-toggle" class="w-10 h-10 rounded-full border border-black/10 dark:border-white/10 bg-white/70 dark:bg-white/5 backdrop-blur-xl flex items-center justify-center hover:scale-105 transition-transform" aria-label="Toggle dark mode">
+        <svg id="sun-icon" class="w-5 h-5 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg id="moon-icon" class="w-5 h-5 text-indigo-300 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<header class="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-br from-slate-950 via-[#0A0F1F] to-[#0B1424] opacity-[0.03] dark:opacity-100"></div>
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(124,58,237,0.08),transparent_60%)] dark:opacity-100 opacity-30"></div>
+  <div class="absolute inset-0 opacity-[0.015] dark:opacity-[0.04]" style="background-image: repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,.3) 39px, rgba(255,255,255,.3) 40px), repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255,255,255,.3) 39px, rgba(255,255,255,.3) 40px)"></div>
+
+  <div class="relative max-w-6xl mx-auto px-6 hero-stagger">
+    <p class="text-accent font-semibold tracking-widest uppercase text-xs mb-4 font-display">Open-Source Skill</p>
+    <h1 class="font-display font-black text-5xl md:text-6xl lg:text-7xl leading-[1.1] mb-6 max-w-4xl">
+      <span class="text-gradient-animated block">UI Design System</span>
+      <span class="block text-foreground dark:text-dark-foreground text-2xl md:text-3xl lg:text-4xl font-semibold mt-3">The design stack for impeccable interfaces</span>
+    </h1>
+    <p class="text-lg md:text-xl text-slate-600 dark:text-dark-dim max-w-2xl leading-relaxed">
+      5 integrated modules for <strong class="text-foreground dark:text-dark-foreground">Claude &amp; Claude Code</strong>. 
+      Quality audit, UX rules, visual culture, pixel-accurate prototyping, and browser validation. 
+      <span class="text-accent font-semibold">Never ship a mediocre UI again.</span>
+    </p>
+    <div class="flex flex-wrap gap-4 mt-8">
+      <a href="#modules" class="bg-primary hover:bg-primary-dark text-white px-7 py-3.5 rounded-full font-display font-semibold transition-all hover:scale-105 inline-flex items-center gap-2 shadow-lg shadow-primary/20">
+        Explore modules
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+      </a>
+      <a href="https://github.com/AtlasNexusTech/ui-design-system" target="_blank" class="border-2 border-border dark:border-dark-border text-foreground dark:text-dark-foreground px-7 py-3.5 rounded-full font-display font-semibold hover:border-primary hover:text-primary transition-all inline-flex items-center gap-2">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+        GitHub
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ===== WHAT IS THIS ===== -->
+<section class="py-16 md:py-20 bg-white dark:bg-dark-card border-y border-border dark:border-dark-border">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="flex flex-col lg:flex-row gap-12 items-center">
+      <div class="lg:w-1/2 reveal">
+        <p class="text-accent font-semibold tracking-widest uppercase text-xs mb-3 font-display">Why this skill</p>
+        <h2 class="section-title font-display font-bold text-3xl md:text-4xl mb-6">Visual quality is not subjective</h2>
+        <div class="space-y-4 text-slate-600 dark:text-dark-dim leading-relaxed">
+          <p>AI agents generate default UI code — generic colors, broken spacing, robotic animations. <strong class="text-foreground dark:text-dark-foreground">This skill replaces arbitrary decisions with precise rules.</strong></p>
+          <p>A competency pack for <strong class="text-foreground dark:text-dark-foreground">Claude Code</strong> — dropped into the project's <code class="bg-muted dark:bg-dark-muted px-1.5 py-0.5 rounded text-sm font-mono text-primary">.claude/skills/</code> directory. Once loaded, the agent designs with the same standards as an art director.</p>
+          <p>5 modules, 1 file, 0 dependencies.</p>
+        </div>
+      </div>
+      <div class="lg:w-1/2 reveal reveal-delay-1">
+        <div class="bg-slate-950 rounded-2xl p-6 font-mono text-sm overflow-hidden border border-slate-800 shadow-2xl">
+          <div class="flex gap-2 mb-4">
+            <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+            <div class="w-3 h-3 rounded-full bg-amber-500/80"></div>
+            <div class="w-3 h-3 rounded-full bg-emerald-500/80"></div>
+          </div>
+          <p class="text-slate-500 mb-1"># .claude/skills/ui-design-system/SKILL.md</p>
+          <p class="text-purple-400">name: <span class="text-emerald-300">ui-design-system</span></p>
+          <p class="text-slate-500">description: Complete design stack —</p>
+          <p class="text-slate-500">  audit, UX, typography, prototyping,</p>
+          <p class="text-slate-500">  Playwright validation.</p>
+          <p class="text-slate-600 mt-2"># MODULE 1 — Audit "Cheap Detector"</p>
+          <p class="text-slate-600"># MODULE 2 — Embedded UX Rules</p>
+          <p class="text-slate-600"># MODULE 3 — Visual Culture (Taste)</p>
+          <p class="text-slate-600"># MODULE 4 — High-Fidelity Prototyping</p>
+          <p class="text-slate-600"># MODULE 5 — Playwright Validation</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 5 MODULES ===== -->
+<section id="modules" class="py-20 md:py-28">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-16 reveal">
+      <p class="text-accent font-semibold tracking-widest uppercase text-xs mb-3 font-display">Architecture</p>
+      <h2 class="font-display font-bold text-3xl md:text-4xl mb-4">5 modules, one standard</h2>
+      <p class="text-slate-600 dark:text-dark-dim max-w-xl mx-auto">Each module encodes a precise design reflex. Together, they cover the entire cycle — from initial audit to real-world validation.</p>
+    </div>
+
+    <!-- Module 1 -->
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-6 mb-8 reveal">
+      <div class="lg:col-span-1 flex items-start gap-4 lg:block">
+        <span class="font-display font-black text-5xl text-primary/20 dark:text-primary/30 lg:block">01</span>
+        <div class="lg:mt-4"><h3 class="font-display font-bold text-lg mb-1">Audit</h3><p class="text-xs text-accent font-semibold tracking-wider uppercase">Cheap Detector</p></div>
+      </div>
+      <div class="lg:col-span-4 bg-surface dark:bg-dark-card rounded-2xl p-6 md:p-8 border border-border dark:border-dark-border card-hover">
+        <p class="text-slate-600 dark:text-dark-dim leading-relaxed mb-6">Automatic scanner for <strong class="text-foreground dark:text-dark-foreground">9 mediocrity signals</strong> before shipping a UI. Generic gradients, broken spacing, robotic animations, Bootstrap shadows — everything that screams "cheap" is detected and fixed.</p>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-3 text-xs">
+          <span class="bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-300 px-3 py-2 rounded-lg font-semibold">✕ purple→pink</span>
+          <span class="bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-300 px-3 py-2 rounded-lg font-semibold">✕ 0 2px 4px shadow</span>
+          <span class="bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-300 px-3 py-2 rounded-lg font-semibold">✕ border-radius: 8px</span>
+          <span class="bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-300 px-3 py-2 rounded-lg font-semibold">✕ #000 on #fff</span>
+          <span class="bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-300 px-3 py-2 rounded-lg font-semibold">✕ transition: all 0.3s</span>
+          <span class="bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-300 px-3 py-2 rounded-lg font-semibold">✕ Inter 16px regular</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Module 2 -->
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-6 mb-8 reveal reveal-delay-1">
+      <div class="lg:col-span-1 flex items-start gap-4 lg:block">
+        <span class="font-display font-black text-5xl text-accent/20 dark:text-accent/30 lg:block">02</span>
+        <div class="lg:mt-4"><h3 class="font-display font-bold text-lg mb-1">UX</h3><p class="text-xs text-accent font-semibold tracking-wider uppercase">Embedded Rules</p></div>
+      </div>
+      <div class="lg:col-span-4 bg-surface dark:bg-dark-card rounded-2xl p-6 md:p-8 border border-border dark:border-dark-border card-hover">
+        <p class="text-slate-600 dark:text-dark-dim leading-relaxed mb-6">10 fundamental UX rules applied automatically. Hierarchy, feedback, perceived performance, touch zones — <strong class="text-foreground dark:text-dark-foreground">the agent no longer produces beginner UX mistakes.</strong></p>
+        <div class="flex flex-wrap gap-2">
+          <span class="bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300 px-3 py-1.5 rounded-full text-xs font-semibold">Max 3 font sizes</span>
+          <span class="bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300 px-3 py-1.5 rounded-full text-xs font-semibold">1 primary CTA</span>
+          <span class="bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300 px-3 py-1.5 rounded-full text-xs font-semibold">F-pattern</span>
+          <span class="bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300 px-3 py-1.5 rounded-full text-xs font-semibold">4 interactive states</span>
+          <span class="bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300 px-3 py-1.5 rounded-full text-xs font-semibold">Inline validation</span>
+          <span class="bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300 px-3 py-1.5 rounded-full text-xs font-semibold">44×44px tap zone</span>
+          <span class="bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300 px-3 py-1.5 rounded-full text-xs font-semibold">200ms transitions</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Module 3 -->
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-6 mb-8 reveal reveal-delay-2">
+      <div class="lg:col-span-1 flex items-start gap-4 lg:block">
+        <span class="font-display font-black text-5xl text-purple-500/20 dark:text-purple-400/30 lg:block">03</span>
+        <div class="lg:mt-4"><h3 class="font-display font-bold text-lg mb-1">Taste</h3><p class="text-xs text-accent font-semibold tracking-wider uppercase">Visual Culture</p></div>
+      </div>
+      <div class="lg:col-span-4 bg-surface dark:bg-dark-card rounded-2xl p-6 md:p-8 border border-border dark:border-dark-border card-hover">
+        <p class="text-slate-600 dark:text-dark-dim leading-relaxed mb-6">Typographic rules, context-specific palettes, animation curves. The agent <strong class="text-foreground dark:text-dark-foreground">knows which combinations work</strong> and which to ban. Inter, Roboto, Open Sans are blacklisted as primary fonts.</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div>
+            <p class="text-xs font-display font-bold uppercase tracking-wider text-slate-400 mb-2">Typography ✓</p>
+            <p class="text-sm font-display font-semibold">Rubik + Nunito Sans</p>
+            <p class="text-sm font-display font-semibold">Playfair Display + Inter</p>
+            <p class="text-sm font-display font-semibold">DM Serif + DM Sans</p>
+          </div>
+          <div>
+            <p class="text-xs font-display font-bold uppercase tracking-wider text-slate-400 mb-2">Motion ✓</p>
+            <p class="text-sm font-mono text-xs">cubic-bezier(0.22,1,0.36,1)</p>
+            <p class="text-sm">stagger 40–80ms</p>
+            <p class="text-sm">spring over ease</p>
+          </div>
+          <div>
+            <p class="text-xs font-display font-bold uppercase tracking-wider text-slate-400 mb-2">Palettes</p>
+            <p class="text-sm">Finance → amber accent</p>
+            <p class="text-sm">SaaS → electric blue</p>
+            <p class="text-sm">Health → sage green</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Module 4 + 5 side by side -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="bg-surface dark:bg-dark-card rounded-2xl p-6 md:p-8 border border-border dark:border-dark-border card-hover reveal reveal-delay-3">
+        <div class="flex items-center gap-4 mb-4">
+          <span class="font-display font-black text-4xl text-amber-500/20 dark:text-amber-400/30">04</span>
+          <div><h3 class="font-display font-bold text-lg mb-0">Prototyping</h3><p class="text-xs text-accent font-semibold tracking-wider uppercase">High Fidelity</p></div>
+        </div>
+        <p class="text-sm text-slate-600 dark:text-dark-dim leading-relaxed mb-4">Pixel extraction, zero free interpretation, reusable components, systemic CSS variables. <strong>What's shown is reproduced.</strong></p>
+        <div class="bg-slate-950 rounded-xl p-4 font-mono text-xs overflow-hidden">
+          <p class="text-purple-400">const</p><p class="text-slate-300"> spacing = { xs: <span class="text-amber-300">4</span>, sm: <span class="text-amber-300">8</span>, md: <span class="text-amber-300">16</span> };</p>
+          <p class="text-slate-500">// Zero repeated hardcoded values</p>
+        </div>
+      </div>
+
+      <div class="bg-surface dark:bg-dark-card rounded-2xl p-6 md:p-8 border border-border dark:border-dark-border card-hover reveal reveal-delay-4">
+        <div class="flex items-center gap-4 mb-4">
+          <span class="font-display font-black text-4xl text-cyan-500/20 dark:text-cyan-400/30">05</span>
+          <div><h3 class="font-display font-bold text-lg mb-0">Validation</h3><p class="text-xs text-accent font-semibold tracking-wider uppercase">Playwright MCP</p></div>
+        </div>
+        <p class="text-sm text-slate-600 dark:text-dark-dim leading-relaxed mb-4">The agent <strong>sees</strong> the interface in a real browser and validates the rendering. Screenshots, spacing verification, interactions. <strong>No more post-deployment surprises.</strong></p>
+        <div class="flex flex-wrap gap-2 text-xs">
+          <span class="bg-cyan-50 dark:bg-cyan-900/20 text-cyan-700 dark:text-cyan-300 px-2.5 py-1 rounded-full font-mono">browser_snapshot</span>
+          <span class="bg-cyan-50 dark:bg-cyan-900/20 text-cyan-700 dark:text-cyan-300 px-2.5 py-1 rounded-full font-mono">browser_take_screenshot</span>
+          <span class="bg-cyan-50 dark:bg-cyan-900/20 text-cyan-700 dark:text-cyan-300 px-2.5 py-1 rounded-full font-mono">browser_click</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BEFORE/AFTER ===== -->
+<section class="py-16 md:py-20 bg-surface dark:bg-dark-card border-y border-border dark:border-dark-border">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-12 reveal">
+      <p class="text-accent font-semibold tracking-widest uppercase text-xs mb-3 font-display">Before / After</p>
+      <h2 class="font-display font-bold text-3xl md:text-4xl mb-4">The skill in action</h2>
+      <p class="text-slate-600 dark:text-dark-dim max-w-xl mx-auto">What Claude Code generates without the skill vs with the skill loaded.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="reveal">
+        <p class="text-xs font-display font-bold uppercase tracking-wider text-red-500 mb-3 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-red-500 inline-block"></span> Without the skill</p>
+        <div class="bg-white dark:bg-slate-900 rounded-xl p-6 border-2 border-red-200 dark:border-red-900/40 space-y-4">
+          <div class="h-6 w-32 rounded" style="background: linear-gradient(90deg, #a855f7, #ec4899)"></div>
+          <p class="text-sm text-slate-800 dark:text-slate-200" style="font-family: Inter, sans-serif; font-size: 16px; line-height: 1.3;">The design of this application is modern and efficient.</p>
+          <div class="flex gap-2">
+            <div class="h-10 w-24 rounded-lg bg-blue-500"></div>
+            <div class="h-10 w-24 rounded-lg bg-slate-200 dark:bg-slate-700"></div>
+          </div>
+          <div class="h-3 w-full rounded bg-slate-100 dark:bg-slate-800 shadow-sm" style="box-shadow: 0 2px 4px rgba(0,0,0,0.1)"></div>
+          <div class="text-xs text-slate-400 space-y-1 mt-3">
+            <p>✕ Purple→pink gradient</p>
+            <p>✕ Inter 16px, line-height 1.3</p>
+            <p>✕ border-radius: 8px everywhere</p>
+            <p>✕ Bootstrap shadows (0 2px 4px)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-1">
+        <p class="text-xs font-display font-bold uppercase tracking-wider text-emerald-500 mb-3 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-500 inline-block"></span> With the skill</p>
+        <div class="bg-white dark:bg-dark-card rounded-xl p-6 border-2 border-emerald-200 dark:border-emerald-900/40 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="h-10 w-10 rounded-full bg-primary flex items-center justify-center text-white font-display font-bold text-sm">AN</div>
+            <span class="font-display font-bold text-lg text-foreground dark:text-dark-foreground">Atlas Nexus</span>
+          </div>
+          <p class="text-sm text-slate-600 dark:text-dark-dim leading-relaxed" style="font-family: 'Nunito Sans', sans-serif; font-size: 15px; line-height: 1.65;">The design system ensures visual consistency across the entire interface, with polished typography and intentional spacing.</p>
+          <div class="flex gap-3">
+            <div class="h-11 px-6 rounded-full bg-primary text-white font-display font-semibold text-sm flex items-center">Discover</div>
+            <div class="h-11 px-6 rounded-full border-2 border-border dark:border-dark-border text-foreground dark:text-dark-foreground font-display font-semibold text-sm flex items-center">GitHub</div>
+          </div>
+          <div class="h-1 w-full rounded-full bg-muted dark:bg-dark-muted overflow-hidden"><div class="h-full w-2/3 rounded-full bg-primary"></div></div>
+          <div class="text-xs text-emerald-600 dark:text-emerald-400 space-y-1 mt-3">
+            <p>✓ Coherent palette (primary + accent)</p>
+            <p>✓ Nunito Sans, line-height 1.65</p>
+            <p>✓ radius: full for buttons, 0px/lg for content</p>
+            <p>✓ Differentiated elements</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== USAGE ===== -->
+<section class="py-16 md:py-20">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-12 reveal">
+      <p class="text-accent font-semibold tracking-widest uppercase text-xs mb-3 font-display">Workflow</p>
+      <h2 class="font-display font-bold text-3xl md:text-4xl mb-4">When to activate each module</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 reveal">
+      <div class="bg-surface dark:bg-dark-card rounded-2xl p-6 border border-border dark:border-dark-border text-center card-hover">
+        <div class="w-12 h-12 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center mx-auto mb-3">
+          <span class="font-display font-black text-xl text-primary">1</span>
+        </div>
+        <p class="font-display font-semibold text-sm mb-1">"Does my UI look cheap?"</p>
+        <p class="text-xs text-slate-500 dark:text-dark-dim">Module 1 — Audit</p>
+      </div>
+      <div class="bg-surface dark:bg-dark-card rounded-2xl p-6 border border-border dark:border-dark-border text-center card-hover">
+        <div class="w-12 h-12 rounded-full bg-accent/10 dark:bg-accent/20 flex items-center justify-center mx-auto mb-3">
+          <span class="font-display font-black text-xl text-accent">2+3</span>
+        </div>
+        <p class="font-display font-semibold text-sm mb-1">"Pick a palette"</p>
+        <p class="text-xs text-slate-500 dark:text-dark-dim">Modules 2 &amp; 3</p>
+      </div>
+      <div class="bg-surface dark:bg-dark-card rounded-2xl p-6 border border-border dark:border-dark-border text-center card-hover">
+        <div class="w-12 h-12 rounded-full bg-purple-500/10 dark:bg-purple-500/20 flex items-center justify-center mx-auto mb-3">
+          <span class="font-display font-black text-xl text-purple-500">4</span>
+        </div>
+        <p class="font-display font-semibold text-sm mb-1">"Reproduce this mockup"</p>
+        <p class="text-xs text-slate-500 dark:text-dark-dim">Module 4 — Prototyping</p>
+      </div>
+      <div class="bg-surface dark:bg-dark-card rounded-2xl p-6 border border-border dark:border-dark-border text-center card-hover">
+        <div class="w-12 h-12 rounded-full bg-cyan-500/10 dark:bg-cyan-500/20 flex items-center justify-center mx-auto mb-3">
+          <span class="font-display font-black text-xl text-cyan-500">5</span>
+        </div>
+        <p class="font-display font-semibold text-sm mb-1">"Verify the rendering"</p>
+        <p class="text-xs text-slate-500 dark:text-dark-dim">Module 5 — Validation</p>
+      </div>
+    </div>
+    <p class="text-center text-sm text-slate-500 dark:text-dark-dim mt-4 reveal reveal-delay-2">Full generation → modules 1+2+3+4 in sequence • Final delivery → audit + validation</p>
+  </div>
+</section>
+
+<!-- ===== INSTALL ===== -->
+<section class="py-16 md:py-20 bg-slate-950 text-white relative overflow-hidden">
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(124,58,237,0.15),transparent_70%)]"></div>
+  <div class="relative max-w-4xl mx-auto px-6 text-center reveal">
+    <p class="text-purple-300 font-semibold tracking-widest uppercase text-xs mb-3 font-display">Installation</p>
+    <h2 class="font-display font-bold text-3xl md:text-4xl mb-6">Ready in 30 seconds</h2>
+    <div class="bg-slate-900/80 backdrop-blur rounded-2xl p-6 border border-slate-700/50 text-left font-mono text-sm mb-6 max-w-lg mx-auto">
+      <p class="text-slate-500 mb-1"># 1. In your Claude Code project</p>
+      <p class="text-emerald-400">mkdir -p .claude/skills/ui-design-system</p>
+      <p class="text-slate-500 mt-3 mb-1"># 2. Download the skill</p>
+      <p class="text-emerald-400">curl -o .claude/skills/ui-design-system/SKILL.md \</p>
+      <p class="text-emerald-400 ml-2">https://raw.githubusercontent.com/AtlasNexusTech/ui-design-system/main/SKILL.md</p>
+      <p class="text-slate-500 mt-3 mb-1"># 3. That's it. Claude Code loads it automatically.</p>
+    </div>
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href="https://github.com/AtlasNexusTech/ui-design-system" target="_blank" class="bg-white/10 hover:bg-white/20 text-white px-7 py-3.5 rounded-full font-display font-semibold transition-all inline-flex items-center gap-2 border border-white/10">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+        View on GitHub
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="py-12 border-t border-border dark:border-dark-border bg-white dark:bg-dark-card">
+  <div class="max-w-6xl mx-auto px-6 text-center">
+    <div class="flex items-center justify-center gap-2 mb-4">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="5" r="2.5" fill="url(#lg-purple2)"/>
+        <circle cx="5" cy="19" r="2.5" fill="url(#lg-purple2)"/>
+        <circle cx="19" cy="19" r="2.5" fill="url(#lg-purple2)"/>
+        <line x1="12" y1="7.5" x2="5" y2="16.5" stroke="url(#lg-indigo2)" stroke-width="1.5"/>
+        <line x1="12" y1="7.5" x2="19" y2="16.5" stroke="url(#lg-indigo2)" stroke-width="1.5"/>
+        <defs>
+          <linearGradient id="lg-purple2" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#7C3AED"/><stop offset="1" stop-color="#6366F1"/></linearGradient>
+          <linearGradient id="lg-indigo2" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#6366F1"/><stop offset="1" stop-color="#818CF8"/></linearGradient>
+        </defs>
+      </svg>
+      <span class="font-display font-bold text-sm text-foreground dark:text-dark-foreground">Atlas Nexus</span>
+    </div>
+    <p class="text-xs text-slate-400 dark:text-dark-dim mb-4">Open-source skill under MIT license. Part of the Claude Code ecosystem.</p>
+    <div class="flex items-center justify-center gap-4 text-xs text-slate-500 dark:text-dark-dim">
+      <a href="https://github.com/AtlasNexusTech/ui-design-system" class="hover:text-primary transition-colors">GitHub</a>
+      <span>·</span>
+      <a href="https://atlasnexus.tech/en/" class="hover:text-primary transition-colors">atlasnexus.tech</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+tailwind.config = {
+  darkMode: 'class',
+  theme: { extend: {
+    fontFamily: { display: ['Rubik','sans-serif'], body: ['Nunito Sans','sans-serif'] },
+    colors: {
+      primary: '#2563EB', 'primary-dark': '#1D4ED8', secondary: '#3B82F6',
+      accent: '#059669', 'accent-dark': '#047857',
+      surface: '#F8FAFC', muted: '#F1F5FD', border: '#E4ECFC', foreground: '#0F172A',
+      'dark-surface': '#0B1120', 'dark-card': '#111827', 'dark-elevated': '#1A2235',
+      'dark-border': '#1E293B', 'dark-muted': '#334155', 'dark-foreground': '#F1F5F9', 'dark-dim': '#94A3B8',
+    }
+  }}
+}
+</script>
+
+<!-- Same inline styles and scripts as FR -->
+<style>
+.section-title { position: relative; padding-bottom: 0.5rem; }
+.section-title::after { content: ""; position: absolute; bottom: 0; left: 0; width: 3rem; height: 3px; border-radius: 2px; background: linear-gradient(90deg, #2563EB, #059669); }
+.text-gradient-animated {
+  background: linear-gradient(110deg, #60A5FA 0%, #2563EB 28%, #7C3AED 52%, #059669 78%, #60A5FA 100%);
+  background-size: 240% 100%; -webkit-background-clip: text; background-clip: text; color: transparent;
+  animation: gradientShift 4s ease-in-out infinite;
+}
+@keyframes gradientShift { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+.card-hover { transition: all 250ms cubic-bezier(0.22,1,0.36,1); }
+.card-hover:hover { transform: translateY(-4px); box-shadow: 0 12px 32px -6px rgba(37,99,235,0.12); border-color: #2563EB; }
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s cubic-bezier(0.22,1,0.36,1), transform 0.6s cubic-bezier(0.22,1,0.36,1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.hero-stagger > * { opacity: 0; transform: translateY(30px); animation: heroFadeIn 0.7s cubic-bezier(0.22,1,0.36,1) forwards; }
+.hero-stagger > *:nth-child(1) { animation-delay: 0.1s; }
+.hero-stagger > *:nth-child(2) { animation-delay: 0.25s; }
+.hero-stagger > *:nth-child(3) { animation-delay: 0.4s; }
+.hero-stagger > *:nth-child(4) { animation-delay: 0.55s; }
+.hero-stagger > *:nth-child(5) { animation-delay: 0.7s; }
+@keyframes heroFadeIn { to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  .reveal { opacity: 1; transform: none; }
+  .hero-stagger > * { opacity: 1; transform: none; animation: none; }
+}
+</style>
+
+<script>
+// Dark mode
+const themeToggle = document.getElementById('theme-toggle');
+const sunIcon = document.getElementById('sun-icon');
+const moonIcon = document.getElementById('moon-icon');
+const html = document.documentElement;
+const stored = localStorage.getItem('theme');
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+function setTheme(dark) {
+  if (dark) { html.classList.add('dark'); sunIcon.classList.add('hidden'); moonIcon.classList.remove('hidden'); }
+  else { html.classList.remove('dark'); sunIcon.classList.remove('hidden'); moonIcon.classList.add('hidden'); }
+  localStorage.setItem('theme', dark ? 'dark' : 'light');
+}
+setTheme(stored === 'dark' || (!stored && prefersDark));
+themeToggle.addEventListener('click', () => setTheme(!html.classList.contains('dark')));
+// Scroll reveals
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
