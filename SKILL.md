@@ -298,5 +298,34 @@ browser_evaluate     → Exécuter du JS dans la page
 
 ---
 
-**Skill généré pour ATLAS NEXUS — Stack design Claude / Claude Code**
+**Skill généré pour ATLAS NEXUS**
 Sources : Impeccable, UI UX Pro Max, Taste, Huashu Design, Playwright MCP.
+Compatible : Claude Code · ChatGPT · DeepSeek · Cursor · tout LLM avec instructions système.
+
+## COMPATIBILITÉ MULTI-PLATEFORME
+
+Ce skill est conçu pour fonctionner avec n'importe quel LLM disposant d'instructions système (system prompt). Les modules 1-4 sont universels. Le Module 5 (Playwright) est spécifique à Claude Code.
+
+### Claude Code
+Placer `SKILL.md` dans `.claude/skills/ui-design-system/`. Chargé automatiquement.
+```bash
+mkdir -p .claude/skills/ui-design-system
+curl -o .claude/skills/ui-design-system/SKILL.md \
+  https://raw.githubusercontent.com/AtlasNexusTech/ui-design-system/main/SKILL.md
+```
+
+### ChatGPT
+**Option A — Custom Instructions** (Settings → Personalization → Custom Instructions) :
+Copier le contenu de `adapters/chatgpt-custom-instructions.md` dans le champ "How would you like ChatGPT to respond?".
+
+**Option B — Custom GPT** :
+Créer un GPT avec les instructions de `adapters/chatgpt-custom-instructions.md`. Le Module 5 peut utiliser le navigateur intégré de ChatGPT (GPT-4o avec browsing) pour la validation visuelle — demander des screenshots et les analyser.
+
+### DeepSeek
+Utiliser le contenu de `adapters/deepseek-system-prompt.md` comme system prompt dans l'API DeepSeek, ou en première instruction de conversation. Le Module 5 devient une checklist de validation manuelle — l'assistant énumère les points à vérifier visuellement.
+
+### Cursor / Windsurf / autres IDE
+Copier `SKILL.md` dans le dossier de règles du projet (`.cursorrules`, `.windsurfrules`, etc.) ou l'inclure dans le contexte du projet.
+
+### Mode universel (tout LLM)
+Envoyer le contenu de `adapters/universal-design-prompt.md` en premier message de la conversation. Les 4 premiers modules s'appliquent immédiatement. Le Module 5 est une checklist textuelle.
